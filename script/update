@@ -314,6 +314,8 @@ def run_gn(target_arch, defines):
         args += ' use_gold=false'
         args += ' use_kerberos=true'
         args += ' use_pulseaudio=true'
+        args += ' is_official_build=false'
+        args += ' is_debug=false'
         if IS_MIPS64EL_HOST:
           args += ' use_sysroot=false'
 
