@@ -1,0 +1,6 @@
+repo: src/third_party/ffmpeg
+patches:
+-
+  owners: alespergl
+  file: 001-build_gn.patch
+  descripion: null

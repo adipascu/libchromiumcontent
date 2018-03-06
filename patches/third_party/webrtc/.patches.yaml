@@ -1,0 +1,14 @@
+repo: src/third_party/webrtc
+patches:
+-
+  owners: alexeykuzmin
+  file: 001-fix_laggy_mouse_during_desktop_capture.patch
+  descripion: null
+-
+  owners: null
+  file: 002-webrtc-desktop_capturer_mac.patch
+  descripion: null
+-
+  owners: null
+  file: 003-webrtc-rwlock_null.patch
+  descripion: null

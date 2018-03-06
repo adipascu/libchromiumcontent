@@ -6,7 +6,6 @@ index 33b4f820bb49..3f29c2e270f5 100644
  
  template("libgtkui") {
    component(target_name) {
-+    # FIXME(alexeykuzmin): Remove after the upgrade to Chromium 63 or 64.
 +    cflags = [ "-Wno-deprecated-declarations" ]
 +
      sources = invoker.sources + [
