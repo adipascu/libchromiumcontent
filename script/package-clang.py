@@ -64,7 +64,7 @@ def PrintTarProgress(tarinfo):
 
 def GetExpectedStamp(args):
   return "%s-%s" % (args.clang_revision, args.clang_sub_revision)
-  
+
 
 def GetGsutilPath():
   if not 'find_depot_tools' in sys.modules:
@@ -107,7 +107,7 @@ def MaybeUpload(args, archive_name, platform):
     secret_key = os.environ.get('ELECTRON_S3_SECRET_KEY')
     exit_code = s3put(bucket, access_key, secret_key, THIS_DIR,
             'clang/{0}'.format(platform),
-            '%s.tgz' % archive_name)
+            ['%s.tgz' % archive_name)]
     if exit_code != 0:
       print "s3 upload failed, exit_code: %s" % exit_code
       sys.exit(exit_code)
