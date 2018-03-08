@@ -140,7 +140,7 @@ def s3put(bucket, access_key, secret_key, prefix, key_prefix, files):
   try:
     output = subprocess.check_call([sys.executable, boto] + list(args), env=env)
     return output
-  except CalledProcessError as e:
+  except subprocess.CalledProcessError as e:
     print 'Error calling boto: ' + e.output
     return e.returncode
 
