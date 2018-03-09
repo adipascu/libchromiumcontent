@@ -15,6 +15,8 @@ import subprocess
 import sys
 import tarfile
 
+from lib.config import IS_ARM64_HOST
+
 # Path constants.
 THIS_DIR = os.path.dirname(__file__)
 CHROMIUM_DIR = os.path.abspath(os.path.join(THIS_DIR, '..', 'src'))
@@ -116,10 +118,15 @@ def MaybeUpload(args, archive_name, platform):
     print ('gsutil %s' % ' '.join(gsutil_args))
 
 def boto_path_dirs():
-  return [
-    os.path.join(BOTO_DIR, 'build', 'lib'),
-    os.path.join(BOTO_DIR, 'build', 'lib.linux-x86_64-2.7')
-  ]
+  if IS_ARM64_HOST:
+    return [
+      os.path.join(BOTO_DIR, 'build', 'lib.linux-aarch64-2.7')
+    ]
+  else:
+    return [
+      os.path.join(BOTO_DIR, 'build', 'lib'),
+      os.path.join(BOTO_DIR, 'build', 'lib.linux-x86_64-2.7')
+    ]
 
 def s3put(bucket, access_key, secret_key, prefix, key_prefix, files):
   args = [
