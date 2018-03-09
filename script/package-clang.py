@@ -137,6 +137,8 @@ def s3put(bucket, access_key, secret_key, prefix, key_prefix, files):
       [env.get('PYTHONPATH', '')] + boto_path_dirs())
 
   boto = os.path.join(BOTO_DIR, 'bin', 's3put')
+  print [sys.executable, boto] + list(args)
+  print env['PYTHONPATH']
   try:
     output = subprocess.check_call([sys.executable, boto] + list(args), env=env)
     return output
